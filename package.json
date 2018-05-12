@@ -8,6 +8,7 @@
     "babel-preset-react": "6.24.1",
     "bem-tools-core": "0.0.3",
     "bem-tools-create": "2.3.0",
+    "node-binance-api": "0.5.0",
     "react": "16.3.1",
     "react-app-rewired": "1.5.0",
     "react-dom": "16.3.1",
