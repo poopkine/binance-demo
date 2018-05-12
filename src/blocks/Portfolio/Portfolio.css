@@ -1,0 +1,22 @@
+.Portfolio {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 200px auto;
+
+    /* TODO: сейчас заточено под две строки, разобраться как сделать
+             раскладку с прокруткой на любое количество строк.
+    */
+    grid-template-rows: minmax(50%, 0) minmax(50%, 0);
+
+    height: calc(100% - 20px);
+}
+
+.Portfolio-Data {
+    overflow: auto;
+}
+
+/* Занимает всю колонку по высоте */
+.Portfolio-Data_side {
+    grid-row-start: 1;
+    grid-row-end: -1;
+}

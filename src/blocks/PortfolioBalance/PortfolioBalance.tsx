@@ -1,0 +1,13 @@
+import { Block } from 'bem-react-core';
+
+import './PortfolioBalance.css';
+
+export default class PortfolioBalance<P> extends Block<P, {}> {
+  protected block = 'PortfolioBalance';
+
+  protected content() {
+    return (
+        'PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance PortfolioBalance '
+    );
+  }
+}
