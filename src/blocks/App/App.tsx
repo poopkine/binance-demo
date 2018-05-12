@@ -1,4 +1,4 @@
-import { Bem, Block, withMods } from 'bem-react-core';
+import { Block, withMods } from 'bem-react-core';
 import * as React from 'react';
 import { Fragment } from 'react';
 
@@ -7,7 +7,9 @@ import mod2, { IExampleMod2Props } from '../Example/_mod2/Example_mod2';
 import Example from '../Example/Example';
 
 import './App.css';
-import Header from './Header/App-Header';
+import Body from './Body/App-Body';
+import Foot from './Foot/App-Foot';
+import Head from './Head/App-Head';
 
 export interface IAppProps {
   path: string;
@@ -26,23 +28,23 @@ export default class App extends Block<IAppProps, IAppState> {
     super(props);
 
     this.state = {
-      title: 'not loaded'
+      title: 'Initializing'
     };
   }
 
   public componentDidMount() {
-    this.setState({ title: 'Welcome to BEM in the TypeScript world' });
+    this.setState({ title: 'Binance Demo' });
   }
 
   protected content() {
     return (
       <Fragment>
-        <Header title={this.state.title}/>
-        <ExampleWithMods mod1 />
-        <ExampleWithMods mod2 />
-        <Bem elem="Intro">
-          To get started, edit <code>{this.props.path}</code> and save to reload.
-        </Bem>
+        <Head title={this.state.title}/>
+        <Body>
+          <ExampleWithMods mod1/>
+          <ExampleWithMods mod2/>
+        </Body>
+        <Foot/>
       </Fragment>
     );
   }
