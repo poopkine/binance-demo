@@ -1,10 +1,8 @@
-import { Block, withMods } from 'bem-react-core';
+import { Block } from 'bem-react-core';
 import * as React from 'react';
 import { Fragment } from 'react';
 
-import mod1, { IExampleMod1Props } from '../Example/_mod1/Example_mod1';
-import mod2, { IExampleMod2Props } from '../Example/_mod2/Example_mod2';
-import Example from '../Example/Example';
+import Portfolio from '../Portfolio/Portfolio';
 
 import './App.css';
 import Body from './Body/App-Body';
@@ -18,8 +16,6 @@ export interface IAppProps {
 export interface IAppState {
   title: string;
 }
-
-const ExampleWithMods = withMods<IExampleMod1Props, IExampleMod2Props>(Example, mod1, mod2);
 
 export default class App extends Block<IAppProps, IAppState> {
   protected block = 'App';
@@ -41,8 +37,7 @@ export default class App extends Block<IAppProps, IAppState> {
       <Fragment>
         <Head title={this.state.title}/>
         <Body>
-          <ExampleWithMods mod1/>
-          <ExampleWithMods mod2/>
+          <Portfolio/>
         </Body>
         <Foot/>
       </Fragment>
