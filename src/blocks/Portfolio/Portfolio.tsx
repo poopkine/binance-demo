@@ -8,14 +8,18 @@ import PortfolioHistory from '../PortfolioHistory/PortfolioHistory';
 
 import './Portfolio.css';
 
-export default class Portfolio<P> extends Block<P, {}> {
+export interface IBlockProps {
+  balance: object;
+}
+
+export default class Portfolio extends Block<IBlockProps, {}> {
   protected block = 'Portfolio';
 
   protected content() {
     return (
       <Fragment>
         <Bem elem="Data" mix="Portfolio-Data_side">
-            <PortfolioBalance/>
+          <PortfolioBalance balance={this.props.balance}/>
         </Bem>
         <Bem elem="Data">
             <PortfolioHistory/>
