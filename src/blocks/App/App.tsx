@@ -5,9 +5,9 @@ import { Fragment } from 'react';
 import Portfolio from '../Portfolio/Portfolio';
 
 import './App.css';
-import Body from './Body/App-Body';
-import Foot from './Foot/App-Foot';
-import Head from './Head/App-Head';
+import AppBody from './Body/App-Body';
+import AppFoot from './Foot/App-Foot';
+import AppHead from './Head/App-Head';
 
 export interface IAppProps {
   path: string;
@@ -42,11 +42,11 @@ export default class App extends Block<IAppProps, IAppState> {
   protected content() {
     return (
       <Fragment>
-        <Head title={this.state.title}/>
-        <Body>
+        <AppHead title={this.state.title}/>
+        <AppBody>
           <Portfolio balance={this.state.balance}/>
-        </Body>
-        <Foot/>
+        </AppBody>
+        <AppFoot/>
       </Fragment>
     );
   }
