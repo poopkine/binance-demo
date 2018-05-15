@@ -18,14 +18,14 @@ export default class PortfolioBalance extends Block<IBlockProps, {}> {
   protected content() {
     const balance = this.props.balance;
 
-    return Object.keys(balance).sort().map((name) => {
+    return Object.keys(balance).sort().map((name, index) => {
       return (
-        <Fragment>
-          <Bem elem='Row' tag='tr'>
-            <Bem elem='Data' tag='td'>
+        <Fragment key={index}>
+          <Bem elem="Row" tag="tr">
+            <Bem elem="Data" tag="td">
               {name}
             </Bem>
-            <Bem elem='Data' tag='td'>
+            <Bem elem="Data" tag="td">
               {balance[name].available}
             </Bem>
           </Bem>

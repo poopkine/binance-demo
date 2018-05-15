@@ -8,8 +8,16 @@ import PortfolioHistory from '../PortfolioHistory/PortfolioHistory';
 
 import './Portfolio.css';
 
-export interface IBlockProps {
-  balance: object;
+// import IBalance from '../../interfaces/IBalance/IBalance';
+interface IBalance {
+  [token: string]: {
+    available: string;
+    onOrder: string;
+  };
+}
+
+interface IBlockProps {
+  balance: IBalance;
 }
 
 export default class Portfolio extends Block<IBlockProps, {}> {
