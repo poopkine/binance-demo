@@ -2,6 +2,7 @@ import { Block } from 'bem-react-core';
 import * as React from 'react';
 import { Fragment } from 'react';
 
+import Binance from '../Binance/Binance';
 import Portfolio from '../Portfolio/Portfolio';
 
 import './App.css';
@@ -9,17 +10,26 @@ import AppBody from './Body/App-Body';
 import AppFoot from './Foot/App-Foot';
 import AppHead from './Head/App-Head';
 
+// import IBalance from '../../interfaces/IBalance/IBalance';
+interface IBalance {
+  [token: string]: {
+    available: string;
+    onOrder: string;
+  };
+}
+
 export interface IAppProps {
   path: string;
 }
 
 export interface IAppState {
   title: string;
-  balance: object;
+  balance: IBalance;
 }
 
 export default class App extends Block<IAppProps, IAppState> {
   protected block = 'App';
+  private binance = new Binance();
 
   constructor(props: IAppProps) {
     super(props);
@@ -31,12 +41,11 @@ export default class App extends Block<IAppProps, IAppState> {
   }
 
   public componentDidMount() {
-    const data = this.getBinanceData();
-
     this.setState({
-      title: 'Binance Demo',
-      balance: data.balance
+      title: 'Binance Demo'
     });
+
+    this.updateData();
   }
 
   protected content() {
@@ -51,25 +60,13 @@ export default class App extends Block<IAppProps, IAppState> {
     );
   }
 
-  private getBinanceData() {
-    const balance = {
-      BTC: { available: '0.00000000', onOrder: '0.00000000' },
-      ETH: { available: '0.01929634', onOrder: '0.00000000' },
-      BNB: { available: '0.99813163', onOrder: '0.00000000' }
-    };
+  private updateData() {
+    const that = this;
 
-    return {
-      balance: this.removeEmptyFromBalance(balance)
-    };
-  }
-
-  private removeEmptyFromBalance(balance) {
-    return Object.keys(balance).reduce((acc, item) => {
-      if (parseFloat(balance[item].available) > 0) {
-        acc[item] = balance[item];
-      }
-
-      return acc;
-    }, {});
+    setInterval(function() {
+      that.binance.getBalance(function(balance: IBalance) {
+        that.setState({balance});
+      });
+    }, 2000);
   }
 }
